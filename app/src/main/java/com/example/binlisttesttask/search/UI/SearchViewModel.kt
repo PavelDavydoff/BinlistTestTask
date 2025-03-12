@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.binlisttesttask.search.domain.BinInteractor
-import com.example.binlisttesttask.search.domain.BinInteractorImpl
-import com.example.binlisttesttask.search.domain.models.BinResponse
 import kotlinx.coroutines.launch
 
 class SearchViewModel(private val binInteractor: BinInteractor) : ViewModel() {

@@ -3,6 +3,7 @@ package com.example.binlisttesttask.search.UI
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,7 +56,9 @@ class SearchFragment : Fragment() {
 
         binding.editText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
+                Log.d("QueryText", queryText)
                 viewModel.searchRequest(queryText)
+                queryText = ""
             }
             false
         }
