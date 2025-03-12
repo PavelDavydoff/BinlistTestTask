@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".search.SearchFragment">
+    tools:context=".search.UI.SearchFragment">
 
     <TextView
         android:id="@+id/title"
@@ -18,12 +18,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/edit_text"
         android:layout_width="@dimen/_0dp"
-        android:layout_height="@dimen/_32sp"
+        android:layout_height="@dimen/_64dp"
         android:layout_marginHorizontal="@dimen/_16dp"
-        android:layout_marginTop="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_32dp"
+        android:hint="@string/enter_bin"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_16dp"
+        tools:text = "Результат"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
