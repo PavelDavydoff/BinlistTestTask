@@ -20,12 +20,12 @@ class RetrofitNetworkClient : NetworkClient {
                 val resp = service.getBin(dto.expression)
                 resp.apply { resultCode = 200 }
             } catch (e: HttpException) {
-                BinResponse("", "", "", false, null, null).apply { resultCode = e.code() }
+                BinResponse(null, "", "", "", null, null, null).apply { resultCode = e.code() }
             } catch (e: Exception) {
-                BinResponse("", "", "", false, null, null).apply { resultCode = 500 }
+                BinResponse(null, "", "", "", null, null, null).apply { resultCode = 500 }
             }
         } else {
-            BinResponse("", "", "", false, null, null).apply { resultCode = 400 }
+            BinResponse(null, "", "", "", null, null, null).apply { resultCode = 400 }
         }
     }
 }

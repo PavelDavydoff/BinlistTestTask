@@ -70,7 +70,7 @@ class SearchFragment : Fragment() {
     private fun render(state: SearchState) {
         when (state) {
             is SearchState.Content -> {
-                binding.resultText.text = state.bin.toString()
+                showContent(state)
             }
 
             is SearchState.Error -> {
@@ -79,11 +79,36 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun showContent(state: SearchState.Content){
-
+    private fun showContent(state: SearchState.Content) {
+        val bin = state.bin
+        with(binding) {
+            content.visibility = View.VISIBLE
+            scheme.text = bin.scheme
+            brand.text = bin.brand
+            length.text = bin.number?.length.toString()
+            luhn.text = when (bin.number?.luhn) {
+                true -> "Yes"
+                false -> "No"
+                else -> "Yes/No"
+            }
+            type.text = bin.type
+            prepaid.text = when (bin.prepaid) {
+                true -> "Yes"
+                false -> "No"
+                null -> "Yes/No"
+            }
+            country.text = bin.country?.name
+            coordinates.text = "latitude ${bin.country?.latitude} longitude ${bin.country?.longitude}"
+            name.text = bin.bank?.name
+            url.text = bin.bank?.url
+            phone.text = bin.bank?.phone
+        }
     }
 
-    private fun showError(state: SearchState.Error){
-
+    private fun showError(state: SearchState.Error) {
+        with(binding){
+            content.visibility = View.GONE
+            resultText.text = "Error ${state.errorCode}"
+        }
     }
 }
