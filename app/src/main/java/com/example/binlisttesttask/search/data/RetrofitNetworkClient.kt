@@ -1,5 +1,6 @@
 package com.example.binlisttesttask.search.data
 
+import com.example.binlisttesttask.search.domain.models.BinResponse
 import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,18 +18,14 @@ class RetrofitNetworkClient : NetworkClient {
         return if (dto is SearchRequest) {
             try {
                 val resp = service.getBin(dto.expression)
-                if (resp != null) {
-                    resp.apply { resultCode = 200 }
-                } else {
-                    Response().apply { resultCode = 204 } // No Content
-                }
+                resp.apply { resultCode = 200 }
             } catch (e: HttpException) {
-                Response().apply { resultCode = e.code() }
+                BinResponse("", "", "", false, null, null).apply { resultCode = e.code() }
             } catch (e: Exception) {
-                Response().apply { resultCode = 500 } // Internal Server Error
+                BinResponse("", "", "", false, null, null).apply { resultCode = 500 }
             }
         } else {
-            Response().apply { resultCode = 400 } // Bad Request
+            BinResponse("", "", "", false, null, null).apply { resultCode = 400 }
         }
     }
 }

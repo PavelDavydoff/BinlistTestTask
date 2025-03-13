@@ -4,13 +4,7 @@ import com.example.binlisttesttask.search.domain.Repository
 import com.example.binlisttesttask.search.domain.models.BinResponse
 
 class RepositoryImpl(private val networkClient: NetworkClient) : Repository {
-    override suspend fun searchBin(expression: String): BinResponse? {
-        val response = networkClient.doRequest(SearchRequest(expression))
-
-        return if (response.resultCode == 200 && response is BinResponse) {
-            response
-        } else {
-            null
-        }
+    override suspend fun searchBin(expression: String): Response {
+        return networkClient.doRequest(SearchRequest(expression))
     }
 }
