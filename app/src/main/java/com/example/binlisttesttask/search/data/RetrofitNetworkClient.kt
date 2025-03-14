@@ -18,11 +18,17 @@ class RetrofitNetworkClient : NetworkClient {
         return if (dto is SearchRequest) {
             try {
                 val resp = service.getBin(dto.expression)
-                resp.apply { resultCode = 200 }
+
+                if (resp.isSuccessful) {
+                    resp.body()?.apply { resultCode = resp.code() } ?: BinResponse(null, "", "", "", null, null, null).apply { resultCode = resp.code() }
+                } else {
+                    BinResponse(null, "", "", "", null, null, null).apply { resultCode = resp.code() }
+                }
+
             } catch (e: HttpException) {
                 BinResponse(null, "", "", "", null, null, null).apply { resultCode = e.code() }
             } catch (e: Exception) {
-                BinResponse(null, "", "", "", null, null, null).apply { resultCode = 500 }
+                BinResponse(null, "", "", "", null, null, null).apply { resultCode = 503 }
             }
         } else {
             BinResponse(null, "", "", "", null, null, null).apply { resultCode = 400 }

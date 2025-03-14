@@ -8,5 +8,5 @@ import retrofit2.http.Query
 
 interface API {
     @GET("{bin}")
-    suspend fun getBin(@Path("bin") text: String) : BinResponse
+    suspend fun getBin(@Path("bin") text: String) : retrofit2.Response<BinResponse>
 }

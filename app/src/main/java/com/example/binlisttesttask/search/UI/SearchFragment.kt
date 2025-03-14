@@ -53,10 +53,13 @@ class SearchFragment : Fragment() {
 
         textWatcher.let { binding.editText.addTextChangedListener(it) }
 
+        binding.button.setOnClickListener {
+            viewModel.searchRequest(queryText)
+        }
+
         binding.editText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 viewModel.searchRequest(queryText)
-                queryText = ""
             }
             false
         }
@@ -74,7 +77,7 @@ class SearchFragment : Fragment() {
             }
 
             is SearchState.Error -> {
-                binding.resultText.text = state.errorCode.toString()
+                showError(state)
             }
         }
     }
@@ -83,6 +86,7 @@ class SearchFragment : Fragment() {
         val bin = state.bin
         with(binding) {
             content.visibility = View.VISIBLE
+            resultText.visibility = View.GONE
             scheme.text = bin.scheme
             brand.text = bin.brand
             length.text = bin.number?.length.toString()
@@ -108,7 +112,8 @@ class SearchFragment : Fragment() {
     private fun showError(state: SearchState.Error) {
         with(binding){
             content.visibility = View.GONE
-            resultText.text = "Error ${state.errorCode}"
+            resultText.visibility = View.VISIBLE
+            resultText.text = "Error code ${state.errorCode}"
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.binlisttesttask.search.UI
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,6 +22,8 @@ class SearchViewModel(private val binInteractor: BinInteractor) : ViewModel() {
             } else {
                 stateLiveData.postValue(SearchState.Error(result.resultCode))
             }
+            Log.d("Код ошибки", result.resultCode.toString())
+            Log.d("Ответ сервера", result.toString())
         }
     }
 }

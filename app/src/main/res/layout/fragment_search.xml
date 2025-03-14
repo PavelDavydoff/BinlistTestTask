@@ -29,6 +29,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="128dp"
+        android:layout_height="@dimen/_64dp"
+        android:text="@string/toFind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text" />
+
     <TextView
         android:id="@+id/resultText"
         android:layout_width="wrap_content"
@@ -37,7 +46,7 @@
         android:layout_marginTop="@dimen/_16dp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text"
+        app:layout_constraintTop_toBottomOf="@id/button"
         tools:text="Результат" />
 
     <LinearLayout
@@ -47,33 +56,41 @@
         android:layout_margin="@dimen/_16dp"
         android:layout_marginStart="@dimen/_16dp"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text">
+        app:layout_constraintTop_toBottomOf="@id/button">
 
         <TextView
+            style="@style/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Scheme/Network" />
 
         <TextView
             android:id="@+id/scheme"
+            style="@style/value"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            tools:text="visa" />
 
         <TextView
+            style="@style/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Brand" />
 
         <TextView
             android:id="@+id/brand"
+            style="@style/value"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp" />
 
         <TextView
+            style="@style/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Number" />
@@ -86,6 +103,7 @@
 
         <TextView
             android:id="@+id/length"
+            style="@style/value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16dp" />
@@ -98,21 +116,26 @@
 
         <TextView
             android:id="@+id/luhn"
+            style="@style/value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16dp" />
 
         <TextView
+            style="@style/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Type" />
 
         <TextView
             android:id="@+id/type"
+            style="@style/value"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp" />
 
         <TextView
+            style="@style/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prepaid" />
@@ -120,33 +143,43 @@
         <TextView
             android:id="@+id/prepaid"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp" />
 
         <TextView
+            style="@style/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Country" />
 
         <TextView
             android:id="@+id/country"
+            style="@style/value"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            tools:text="Russia" />
 
         <TextView
             android:id="@+id/coordinates"
+            style="@style/value"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp" />
 
         <TextView
+            style="@style/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bank" />
 
         <TextView
             android:id="@+id/name"
+            style="@style/value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16dp" />
+            android:layout_marginStart="@dimen/_16dp"
+            tools:text="Sberbank" />
 
         <TextView
             android:id="@+id/url"

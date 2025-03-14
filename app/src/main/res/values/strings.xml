@@ -3,4 +3,5 @@
     <string name="search">Поиск</string>
     <string name="history">История</string>
     <string name="enter_bin">Введите bin</string>
+    <string name="toFind">Найти</string>
 </resources>
