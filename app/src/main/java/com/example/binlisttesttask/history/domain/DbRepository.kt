@@ -4,6 +4,6 @@ import com.example.binlisttesttask.search.domain.models.BinResponse
 import kotlinx.coroutines.flow.Flow
 
 interface DbRepository {
-    fun addBin(bin: BinResponse)
+    fun addBin(bin: BinResponse, binNumber: Int)
     fun getBins(): Flow<List<Bin>>
 }

@@ -19,7 +19,7 @@ class RetrofitNetworkClient : NetworkClient {
             try {
                 val resp = service.getBin(dto.expression)
 
-                if (resp.isSuccessful) {
+                if (resp.isSuccessful) {//Вот тут исправить, чтобы не возвращал пустой объект
                     resp.body()?.apply { resultCode = resp.code() } ?: BinResponse(null, "", "", "", null, null, null).apply { resultCode = resp.code() }
                 } else {
                     BinResponse(null, "", "", "", null, null, null).apply { resultCode = resp.code() }

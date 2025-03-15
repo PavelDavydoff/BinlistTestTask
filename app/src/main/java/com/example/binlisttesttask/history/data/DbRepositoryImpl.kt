@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.map
 
 class DbRepositoryImpl(private val database: AppDatabase, private val dbConverter: DbConverter) :
     DbRepository {
-    override fun addBin(bin: BinResponse) {
-        database.binDao().insertBin(dbConverter.map(bin))
+    override fun addBin(bin: BinResponse, binNumber: Int) {
+        database.binDao().insertBin(dbConverter.map(bin, binNumber))
     }
 
     override fun getBins(): Flow<List<Bin>> =

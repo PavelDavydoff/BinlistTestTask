@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_128dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_16dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+
+        android:id="@+id/binNumber"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        tools:text="22022023"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideLine"
+        app:layout_constraintBottom_toTopOf="@id/scheme"/>
+
+    <TextView
+        android:id="@+id/scheme"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        app:layout_constraintTop_toBottomOf="@id/binNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideLine"
+        app:layout_constraintBottom_toTopOf="@id/type"
+        tools:text="Visa" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        app:layout_constraintTop_toBottomOf="@id/scheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Debit" />
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/country"
+        tools:text="Gold" />
+
+    <TextView
+        android:id="@+id/country"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        app:layout_constraintTop_toBottomOf="@id/brand"
+        app:layout_constraintStart_toStartOf="@id/guideLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bank"
+        tools:text="Russian Federation" />
+
+    <TextView
+        android:id="@+id/bank"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        app:layout_constraintTop_toBottomOf="@id/country"
+        app:layout_constraintStart_toStartOf="@id/guideLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Sberbank of Russia" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
