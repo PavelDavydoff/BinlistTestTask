@@ -1,4 +1,4 @@
-package com.example.binlisttesttask.history
+package com.example.binlisttesttask.history.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,6 +1,5 @@
-package com.example.binlisttesttask.search.UI
+package com.example.binlisttesttask.search.ui
 
-import com.example.binlisttesttask.search.data.Response
 import com.example.binlisttesttask.search.domain.models.BinResponse
 
 sealed interface SearchState {

@@ -1,4 +1,4 @@
-package com.example.binlisttesttask.search.UI
+package com.example.binlisttesttask.search.ui
 
 import android.util.Log
 import androidx.lifecycle.LiveData
