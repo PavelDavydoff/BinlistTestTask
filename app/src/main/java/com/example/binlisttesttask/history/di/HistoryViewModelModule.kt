@@ -6,6 +6,6 @@ import org.koin.dsl.module
 
 val historyViewModelModule = module {
     viewModel {
-        HistoryViewModel()
+        HistoryViewModel(get())
     }
 }

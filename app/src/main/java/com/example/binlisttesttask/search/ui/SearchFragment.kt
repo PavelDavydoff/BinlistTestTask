@@ -1,5 +1,6 @@
 package com.example.binlisttesttask.search.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.example.binlisttesttask.databinding.FragmentSearchBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -55,6 +58,9 @@ class SearchFragment : Fragment() {
 
         binding.button.setOnClickListener {
             viewModel.searchRequest(queryText)
+
+            val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(binding.editText.windowToken, 0)
         }
 
         binding.editText.setOnEditorActionListener { _, actionId, _ ->
@@ -93,13 +99,13 @@ class SearchFragment : Fragment() {
             luhn.text = when (bin.number?.luhn) {
                 true -> "Yes"
                 false -> "No"
-                else -> "Yes/No"
+                else -> "-"
             }
             type.text = bin.type
             prepaid.text = when (bin.prepaid) {
                 true -> "Yes"
                 false -> "No"
-                null -> "Yes/No"
+                null -> "-"
             }
             country.text = bin.country?.name
             coordinates.text = "latitude ${bin.country?.latitude} longitude ${bin.country?.longitude}"

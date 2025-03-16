@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 data class BinEntity(
     @PrimaryKey
     val bin: Int,
-    val scheme: String,
-    val type: String,
-    val brand: String,
+    val scheme: String?,
+    val type: String?,
+    val brand: String?,
     val country: String?,
     val bank: String?
 )
