@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.binlisttesttask.R
 import com.example.binlisttesttask.history.domain.models.Bin
 
-class HistoryViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+class HistoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val binNumber: TextView = itemView.findViewById(R.id.binNumber)
     private val scheme: TextView = itemView.findViewById(R.id.scheme)
     private val type: TextView = itemView.findViewById(R.id.type)
