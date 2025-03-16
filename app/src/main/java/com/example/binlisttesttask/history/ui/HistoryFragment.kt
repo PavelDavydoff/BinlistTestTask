@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.binlisttesttask.databinding.FragmentHistoryBinding
+import com.example.binlisttesttask.history.ui.models.HistoryState
+import com.example.binlisttesttask.history.ui.presentation.HistoryAdapter
+import com.example.binlisttesttask.history.ui.presentation.HistoryViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HistoryFragment : Fragment() {

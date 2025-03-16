@@ -14,6 +14,8 @@ import android.view.inputmethod.InputMethodManager
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.example.binlisttesttask.databinding.FragmentSearchBinding
+import com.example.binlisttesttask.search.ui.models.SearchState
+import com.example.binlisttesttask.search.ui.presentation.SearchViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : Fragment() {

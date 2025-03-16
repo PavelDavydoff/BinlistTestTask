@@ -1,4 +1,4 @@
-package com.example.binlisttesttask.search.ui
+package com.example.binlisttesttask.search.ui.presentation
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.binlisttesttask.history.domain.DbInteractor
 import com.example.binlisttesttask.search.domain.BinInteractor
 import com.example.binlisttesttask.search.domain.models.BinResponse
+import com.example.binlisttesttask.search.ui.models.SearchState
 import kotlinx.coroutines.launch
 
 class SearchViewModel(private val binInteractor: BinInteractor, private val historyInteractor: DbInteractor) : ViewModel() {

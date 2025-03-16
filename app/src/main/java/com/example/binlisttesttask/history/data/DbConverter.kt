@@ -1,7 +1,7 @@
 package com.example.binlisttesttask.history.data
 
 import com.example.binlisttesttask.history.db.BinEntity
-import com.example.binlisttesttask.history.domain.Bin
+import com.example.binlisttesttask.history.domain.models.Bin
 import com.example.binlisttesttask.search.domain.models.BinResponse
 
 class DbConverter {

@@ -1,10 +1,11 @@
-package com.example.binlisttesttask.history.ui
+package com.example.binlisttesttask.history.ui.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binlisttesttask.R
-import com.example.binlisttesttask.history.domain.Bin
+import com.example.binlisttesttask.history.domain.models.Bin
+import com.example.binlisttesttask.history.ui.HistoryViewHolder
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryViewHolder>() {
     var bins = ArrayList<Bin>()

@@ -1,4 +1,4 @@
-package com.example.binlisttesttask.search.ui
+package com.example.binlisttesttask.search.ui.models
 
 import com.example.binlisttesttask.search.domain.models.BinResponse
 

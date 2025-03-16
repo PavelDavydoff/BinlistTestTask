@@ -1,6 +1,6 @@
 package com.example.binlisttesttask.history.di
 
-import com.example.binlisttesttask.history.ui.HistoryViewModel
+import com.example.binlisttesttask.history.ui.presentation.HistoryViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

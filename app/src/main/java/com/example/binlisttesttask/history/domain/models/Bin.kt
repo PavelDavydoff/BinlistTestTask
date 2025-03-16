@@ -1,4 +1,4 @@
-package com.example.binlisttesttask.history.domain
+package com.example.binlisttesttask.history.domain.models
 
 data class Bin(
     val binNumber: Int,

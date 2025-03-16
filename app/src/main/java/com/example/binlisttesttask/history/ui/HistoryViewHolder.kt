@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binlisttesttask.R
-import com.example.binlisttesttask.history.domain.Bin
+import com.example.binlisttesttask.history.domain.models.Bin
 
 class HistoryViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
     private val binNumber: TextView = itemView.findViewById(R.id.binNumber)
