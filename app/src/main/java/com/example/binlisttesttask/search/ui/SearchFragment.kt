@@ -1,6 +1,8 @@
 package com.example.binlisttesttask.search.ui
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,7 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.example.binlisttesttask.databinding.FragmentSearchBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -21,6 +23,9 @@ class SearchFragment : Fragment() {
     private lateinit var textWatcher: TextWatcher
 
     private val viewModel by viewModel<SearchViewModel>()
+
+    var latitude = 0
+    var longitude = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,7 +64,8 @@ class SearchFragment : Fragment() {
         binding.button.setOnClickListener {
             viewModel.searchRequest(queryText)
 
-            val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val imm =
+                view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(binding.editText.windowToken, 0)
         }
 
@@ -68,6 +74,26 @@ class SearchFragment : Fragment() {
                 viewModel.searchRequest(queryText)
             }
             false
+        }
+
+        binding.phone.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL).apply {
+                data = binding.phone.text.toString().toUri()
+            }
+            startActivity(intent)
+        }
+
+        binding.url.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = binding.url.text.toString().toUri()
+            }
+            startActivity(intent)
+        }
+
+        binding.country.setOnClickListener {
+            val geoUri = "geo:$latitude,$longitude"
+            val intent = Intent(Intent.ACTION_VIEW, geoUri.toUri())
+            startActivity(intent)
         }
     }
 
@@ -108,15 +134,19 @@ class SearchFragment : Fragment() {
                 null -> "-"
             }
             country.text = bin.country?.name
-            coordinates.text = "latitude ${bin.country?.latitude} longitude ${bin.country?.longitude}"
+            coordinates.text =
+                "latitude ${bin.country?.latitude} longitude ${bin.country?.longitude}"
             name.text = bin.bank?.name
             url.text = bin.bank?.url
             phone.text = bin.bank?.phone
+
+            latitude = bin.country?.latitude!!.toInt()
+            longitude = bin.country.longitude.toInt()
         }
     }
 
     private fun showError(state: SearchState.Error) {
-        with(binding){
+        with(binding) {
             content.visibility = View.GONE
             resultText.visibility = View.VISIBLE
             resultText.text = "Error code ${state.errorCode}"
